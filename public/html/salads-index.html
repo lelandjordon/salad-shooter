@@ -2,5 +2,10 @@
 <ul>
   <li data-ng-repeat="salad in IndexVM.salads">
     <h2>{{salad.text}}</h2>
+    <ul>
+      <li data-ng-repeat="topping in salad.toppings">
+        {{topping.text}}
+      </li>
+    </ul>
   </li>
 </ul>

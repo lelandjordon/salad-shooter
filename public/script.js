@@ -7,6 +7,7 @@
     "ngResource"
   ])
   .config(Router)
+  .factory("Salad", SaladFactory)
   .controller("Index", IndexCtrl);
 
   Router.$inject = ["$stateProvider"];
@@ -24,20 +25,16 @@
     });
   }
 
-  IndexCtrl.$inject = [];
-  function IndexCtrl(){
+  SaladFactory.$inject = ["$resource"];
+  function SaladFactory($resource){
+    var Salad = $resource("/api/salads/:text");
+    return Salad;
+  }
+
+  IndexCtrl.$inject = ["Salad"];
+  function IndexCtrl(Salad){
     var vm = this;
-    vm.salads = [
-      {
-        text: "test one"
-      },
-      {
-        text: "test two"
-      },
-      {
-        text: "Third test, Dave."
-      }
-    ];
+    vm.salads = Salad.query();
   }
 
 
