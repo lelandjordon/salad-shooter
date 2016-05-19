@@ -35,6 +35,11 @@
   function IndexCtrl(Salad){
     var vm = this;
     vm.salads = Salad.query();
+    vm.create = function(){
+      Salad.save(vm.newSalad, function(response){
+        console.log(response);
+      });
+    }
   }
 
 
