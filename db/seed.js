@@ -8,3 +8,9 @@ Salad.remove().then(function(){
     process.exit();
   });
 });
+
+
+// To see the seeded database, use this command in Mongo:
+// db.salads.find().pretty()
+// Mongo automatically pluralizes "salads" and ignored the
+// name after the under_score.
