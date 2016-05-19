@@ -1,0 +1,30 @@
+[
+  {
+    "text": "Arugula",
+    "toppings": [
+      {
+        "text": "Egg"
+      },
+      {
+        "text": "Avocado"
+      },
+      {
+        "text": "Quinoa"
+      }
+    ]
+  },
+  {
+    "text": "Spinach",
+    "toppings": [
+      {
+        "text": "Walnuts"
+      },
+      {
+        "text": "Cranberries"
+      },
+      {
+        "text": "Blue Cheese"
+      }
+    ]
+  }
+]
