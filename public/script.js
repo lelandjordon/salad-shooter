@@ -12,12 +12,12 @@
   function Router($stateProvider){
     $stateProvider
     .state("index", {
-      url:      "/",
+      url:         "/",
       templateUrl: "/assets/html/salads-index.html"
     })
     .state("show", {
-      url:      "/:title",
-      template: "This is not the Index, Dave."
+      url:         "/:title",
+      templateUrl: "/assets/html/salads-show.html"
     });
   }
 
