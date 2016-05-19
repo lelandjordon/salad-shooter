@@ -15,7 +15,7 @@ app.engine(".hbs", hbs({
 }))
 
 app.get("/", function(req, res){
-  res.send("Hello again, Dave.");
+  res.render("layout-main", {layout: false});
 });
 
 app.get("/api/salads", function(req, res){
