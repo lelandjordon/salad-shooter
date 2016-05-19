@@ -10,8 +10,9 @@
   .factory("Salad", SaladFactory)
   .controller("Index", IndexCtrl);
 
-  Router.$inject = ["$stateProvider"];
-  function Router($stateProvider){
+  Router.$inject = ["$stateProvider", "$locationProvider"];
+  function Router($stateProvider, $locationProvider){
+    $locationProvider.html5Mode(true);
     $stateProvider
     .state("index", {
       url:          "/",
@@ -37,7 +38,7 @@
     vm.salads = Salad.query();
     vm.create = function(){
       Salad.save(vm.newSalad, function(response){
-        console.log(response);
+        vm.questions.push(response);
       });
     }
   }

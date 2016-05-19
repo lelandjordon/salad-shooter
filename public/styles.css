@@ -1,3 +1,58 @@
+*{
+  margin:0;
+  padding:0;
+  border:0;
+  text-decoration:inherit;
+  font-size:inherit;
+  color:inherit;
+}
+*:focus{
+  outline:none;
+}
+html, body{
+  font-size:18px;
+  line-height:36px;
+  font-family:"Helvetica Neue", Helvetica, sans-serif;
+  color:#223;
+}
+html{
+  background-color:#eee;
+}
 body{
-  text-align: center;
+  width:100%;
+  max-width:600px;
+  margin:0 auto;
+}
+.salads > li{
+  list-style-type:none;
+  border-top:1px dotted #999;
+  padding:1em 0;
+  margin:1em auto;
+}
+.toppings > li{
+  list-style-type:disc;
+  list-style-position:inside;
+}
+h1{
+  text-align:center;
+  font-size:36px;
+  line-height:60px;
+}
+a{
+  color
+}
+input, button{
+  display:block;
+  width:100%;
+  padding:0.5em 1em;
+  border-radius:0.2em;
+  box-sizing:border-box;
+  margin:0.5em auto;
+}
+button{
+  background-color:#ff9966;
+  cursor:pointer;
+}
+button:hover{
+  background-color:#ff6633;
 }

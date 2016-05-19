@@ -16,9 +16,6 @@ app.engine(".hbs", hbs({
   defaultLayout: "layout-main"
 }))
 
-app.get("/", function(req, res){
-  res.render("main", {layout: false});
-});
 
 app.get("/api/salads", function(req, res){
   Salad.find().then(function(salads){
@@ -27,8 +24,14 @@ app.get("/api/salads", function(req, res){
 });
 
 app.post("/api/salads", function(req, res){
-  res.json(req.body);
-})
+  Salad.create(req.body).then(function(salad){
+    res.json(salad);
+  });
+});
+
+app.get("/*", function(req, res){
+  res.render("main", {layout: false});
+});
 
 app.listen(4000, function(){
   console.log("Why yes, I can do that, Dave.");
