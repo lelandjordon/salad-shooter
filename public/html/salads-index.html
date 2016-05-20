@@ -1,7 +1,7 @@
 <h1>This is the salads-index html file, Dave.</h1>
 <ul class="salads">
   <li data-ng-repeat="salad in IndexVM.salads">
-    <h2>{{salad.text}}</h2>
+    <h2><a data-ui-sref="show(salad)">{{salad.text}}</a></h2>
     <ul class="toppings">
       <li data-ng-repeat="topping in salad.toppings">
         {{topping.text}}

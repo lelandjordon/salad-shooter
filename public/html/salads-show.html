@@ -1,1 +1,7 @@
 <h1>This is the Salads Show html page, Dave.</h1>
+<h2>{{ShowVM.salad.text}}</h2>
+<ul class="toppings">
+  <li data-ng-repeat="topping in ShowVM.salad.toppings">
+    {{topping.text}}
+  </li>
+</ul>

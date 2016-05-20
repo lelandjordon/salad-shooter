@@ -23,6 +23,12 @@ app.get("/api/salads", function(req, res){
   });
 });
 
+app.get("/api/salads/:_id", function(req, res){
+  Salad.findOne(req.params).then(function(salad){
+    res.json(salad);
+  });
+});
+
 app.post("/api/salads", function(req, res){
   Salad.create(req.body).then(function(salad){
     res.json(salad);
