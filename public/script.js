@@ -42,9 +42,16 @@
     var vm = this;
     vm.salads = Salad.query();
     vm.create = function(){
+      if (vm.newSalad) {
       Salad.save(vm.newSalad, function(response){
         vm.salads.push(response);
-      });
+        vm.newSalad=null;
+        });
+
+      } else {
+        alert("Punch in a Salad Name, Dave");
+      }
+
     }
   }
 
@@ -61,9 +68,9 @@
       vm.salad.toppings.push(vm.topping);
       vm.update();
     }
-    vm.delete = function(){
-      Salad.remove($stateParams, vm.salad, function(response){
-        $window.location.replace("/");
+    vm.destroy = function(){
+      Salad.remove($stateParams, function(){
+        $state.go("index");
       })
     }
   }
