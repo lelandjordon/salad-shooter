@@ -31,7 +31,9 @@
 
   SaladFactory.$inject = ["$resource"];
   function SaladFactory($resource){
-    var Salad = $resource("/api/salads/:_id");
+    var Salad = $resource("/api/salads/:_id", {},{
+      update: {method: "PUT"}
+    });
     return Salad;
   }
 
@@ -46,10 +48,19 @@
     }
   }
 
-  ShowCtrl.$inject = ["Salad", "$stateParams"];
-  function ShowCtrl(Salad, $stateParams){
+  ShowCtrl.$inject = ["Salad", "$stateParams", "$state"];
+  function ShowCtrl(Salad, $stateParams, $state){
     var vm = this;
     vm.salad = Salad.get($stateParams);
+    vm.update = function(){
+      Salad.update($stateParams, vm.salad, function(response){
+        $state.reload();
+      });
+    }
+    vm.createTopping = function(){
+      vm.salad.toppings.push(vm.topping);
+      vm.update();
+    }
   }
 
 

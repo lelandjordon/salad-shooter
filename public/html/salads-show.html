@@ -4,4 +4,13 @@
   <li data-ng-repeat="topping in ShowVM.salad.toppings">
     {{topping.text}}
   </li>
+  <li>
+    Add a new topping.  Cheap!
+    <input type="text" data-ng-model="ShowVM.topping.text" />
+    <button data-ng-click="ShowVM.createTopping()">Add this topping</button>
+  </li>
 </ul>
+
+<h2>Update the Salad</h2>
+<input type="text" data-ng-model="ShowVM.salad.text" />
+<button data-ng-click="ShowVM.update()">Change</button>
