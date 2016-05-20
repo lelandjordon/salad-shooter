@@ -37,15 +37,17 @@ app.put("/api/salads/:_id", function(req, res){
 });
 
 app.delete("/api/salads/:_id", function(req, res){
-  Salad.findOneAndDelete({salad: req.params.salad}).then(function(salad){
+  Salad.findOneAndRemove(req.params).then(function(salad){
     res.json({success: true});
   });
 });
 
 app.post("/api/salads", function(req, res){
-  Salad.create(req.body).then(function(salad){
-    res.json(salad);
-  });
+  if (req.body !== null || req.body !== " "){
+    Salad.create(req.body).then(function(salad){
+      res.json(salad);
+    });
+  }
 });
 
 app.get("/*", function(req, res){
