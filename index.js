@@ -37,9 +37,8 @@ app.put("/api/salads/:_id", function(req, res){
 });
 
 app.delete("/api/salads/:_id", function(req, res){
-  console.log(req.body)
-  Salad.findOneAndDelete(req.params).then(function(salad){
-    res.json(salad);
+  Salad.findOneAndDelete({salad: req.params.salad}).then(function(salad){
+    res.json({success: true});
   });
 });
 

@@ -43,7 +43,7 @@
     vm.salads = Salad.query();
     vm.create = function(){
       Salad.save(vm.newSalad, function(response){
-        vm.questions.push(response);
+        vm.salads.push(response);
       });
     }
   }
@@ -61,9 +61,9 @@
       vm.salad.toppings.push(vm.topping);
       vm.update();
     }
-    vm.destroySalad = function(){
-      Salad.destroy($stateParams, vm.salad, function(response){
-        vm.destroy();
+    vm.delete = function(){
+      Salad.remove($stateParams, vm.salad, function(response){
+        $window.location.replace("/");
       })
     }
   }
