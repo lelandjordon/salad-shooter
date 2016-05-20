@@ -36,6 +36,13 @@ app.put("/api/salads/:_id", function(req, res){
   });
 });
 
+app.delete("/api/salads/:_id", function(req, res){
+  console.log(req.body)
+  Salad.findOneAndDelete(req.params).then(function(salad){
+    res.json(salad);
+  });
+});
+
 app.post("/api/salads", function(req, res){
   Salad.create(req.body).then(function(salad){
     res.json(salad);

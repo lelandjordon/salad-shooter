@@ -61,6 +61,11 @@
       vm.salad.toppings.push(vm.topping);
       vm.update();
     }
+    vm.destroySalad = function(){
+      Salad.destroy($stateParams, vm.salad, function(response){
+        vm.destroy();
+      })
+    }
   }
 
 

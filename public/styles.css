@@ -56,3 +56,6 @@ button{
 button:hover{
   background-color:#ff6633;
 }
+.kill{
+  background-color: #ff0011;
+}
